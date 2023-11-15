@@ -18,9 +18,9 @@ void envi(char **argv, char *buffer);
 int _execute(char **argv, char *path);
 char *path_handle(char **argv);
 int _cd(char **argv, char *buffer, char *path);
-void free_token(char **argv, char *buffer, char *path);
-void _eexit(char **argv, char *buffer);
+void free_token(char **string, char *buffer, char *path);
+void _eexit(char **string, char *buffer);
 char **tokenize(char *str);
-char **execute_command(void);
+char **command_execute(void);
 
 #endif

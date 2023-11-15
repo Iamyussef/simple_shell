@@ -5,11 +5,11 @@
  * Return: void
  */
 
-char **execute_command(void)
+char **command_execute(void)
 {
-	char *buffer = NULL, **argv = NULL;
-	size_t len = 0;
-	ssize_t bytes = getline(&buffer, &len, stdin);
+	char *buffer = NULL, **strings = NULL;
+	size_t length = 0;
+	ssize_t bytes = getline(&buffer, &length, stdin);
 		if (bytes == -1)
 		{
 			free(buffer);
@@ -17,65 +17,66 @@ char **execute_command(void)
 		}
 		if (buffer[bytes] == '\n')
 			buffer[bytes] = '\0';
-	argv = tokenize(buffer);
-		if (argv == NULL)
+	strings = tokenize(buffer);
+		if (strings == NULL)
 		{
-			free_token(argv, buffer, NULL);
+			free_token(strings, buffer, NULL);
 		}
-		if (strcmp(argv[0], "cd") == 0 && argv[0] != NULL)
+		if (strcmp(strings[0], "cd") == 0 && strings[0] != NULL)
 		{
-			_cd(argv, buffer, NULL); }
-		if (strcmp(argv[0], "exit") == 0 && argv[0] != NULL)
+			_cd(strings, buffer, NULL); }
+		if (strcmp(strings[0], "exit") == 0 && strings[0] != NULL)
 		{
-			_eexit(argv, buffer); }
-		if (strncmp("env", argv[0], 3) == 0)
+			_eexit(strings, buffer); }
+		if (strncmp("env", strings[0], 3) == 0)
 		{
-			envi(argv, buffer); }
-	free_token(argv, buffer, NULL);
-	return (argv);
+			envi(strings, buffer); }
+	free_token(NULL, buffer, NULL);
+	return (strings);
 }
 /**
- * _eexit - exits the program
- * @argv: a pointer to an array of strings
- * @buffer: command
+ * _eexit - successfully exits the program
+ * @argv: a pointer to pointer strings
+ * @buffer: command string
  * Return: void
  */
 
-void _eexit(char **argv, char *buffer)
+void _eexit(char **string, char *buffer)
 {
-	int j = 0;
-		if (argv != NULL)
-		{
-			for (j = 0; argv[j] != NULL; j++)
-				free(argv[j]);
-			free(argv);
-		}
-		if (buffer != NULL)
-			free(buffer);
-		exit(0);
+	int n = 0;
+	if (string != NULL)
+	{
+		for (n = 0; string[n] != NULL; n++)
+			free(string[n]);
+		free(string);
+	}
+	if (buffer != NULL)
+		free(buffer);
+	exit(0);
 }
 
 /**
- * free_token - frees allocated memory
- * @argv: a pointer to an array of pointers to strings
- * @path: path
+ * free_token - frees the allocated memory
+ * @argv: a pointer to pointer to strings
+ * @path: path string
  * @buffer: buffer
- * Return: void
+ * Return: nothing
  */
 
-void free_token(char **argv, char *buffer, char *path)
+void free_token(char **string, char *buffer, char *path)
 {
-	int i = 0;
-		if (argv != NULL)
+	int n = 0;
+
+	if (string != NULL)
+	{
+		for (n = 0; string[n] != NULL; n++)
 		{
-			for (i = 0; argv[i] != NULL; i++)
-			{
-				free(argv[i]);
-			}
-			free(argv);
+			free(string[n]);
 		}
-		if (buffer != NULL)
-			free(buffer);
-		if (path != NULL)
-			free(path);
+		free(string);
+	}
+	if (buffer != NULL)
+		free(buffer);
+	if (path != NULL)
+		free(path);
 }
