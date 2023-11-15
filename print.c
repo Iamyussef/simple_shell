@@ -7,4 +7,6 @@
  */
 
 void print(char *str)
-
+{
+	write(1, str, strlen(str));
+}
