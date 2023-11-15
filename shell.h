@@ -13,10 +13,10 @@
 #include <string.h>
 
 void print(char *str);
-void prompt(void);
+void prompt_display(void);
 void envi(char **argv, char *buffer);
-int execute(char **argv, char *path);
-char *_path(char **argv);
+int _execute(char **argv, char *path);
+char *path_handle(char **argv);
 int _cd(char **argv, char *buffer, char *path);
 void free_token(char **argv, char *buffer, char *path);
 void _eexit(char **argv, char *buffer);
