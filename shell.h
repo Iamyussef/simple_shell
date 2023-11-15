@@ -12,6 +12,8 @@
 #include <limits.h>
 #include <string.h>
 
+extern char **environ;
+
 void _printf(char *str);
 void prompt_display(void);
 void envi(char **argv, char *buffer);

@@ -9,7 +9,7 @@ void prompt_display(void)
 {
 	if (isatty(STDOUT_FILENO) == 1)
 	{
-		print("#cisfun$ ");
+		_printf("#cisfun$ ");
 		fflush(stdout);
 	}
 }

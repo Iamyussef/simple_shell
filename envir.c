@@ -14,8 +14,8 @@ void envi(char **argv, char *buffer)
 	(void)argv;
 		while (environ[x] != NULL)
 		{
-			print(environ[x]);
-			print("\n");
+			_printf(environ[x]);
+			_printf("\n");
 			x++;
 		}
 }

@@ -1,1 +1,1 @@
-SIMPLE SHELL
+SIMPLE SHELL: this project is about assigning a shell that correspends to the shell we are used to working on, which handles commands and executes them. this project is a great project which would make us stengthen our knowledge and skills towards c langauge  programming. this program would successfully workd as intended for usersand will handle and execute commands submitted by users.

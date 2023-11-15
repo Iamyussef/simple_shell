@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * execute_command - a function that executes commands
+ * command_execute - function that executes commands
  * Return: void
  */
 
@@ -36,34 +36,12 @@ char **command_execute(void)
 }
 /**
  * _eexit - successfully exits the program
- * @argv: a pointer to pointer strings
+ * @string: a pointer to pointer strings
  * @buffer: command string
  * Return: void
  */
 
 void _eexit(char **string, char *buffer)
-{
-	int n = 0;
-	if (string != NULL)
-	{
-		for (n = 0; string[n] != NULL; n++)
-			free(string[n]);
-		free(string);
-	}
-	if (buffer != NULL)
-		free(buffer);
-	exit(0);
-}
-
-/**
- * free_token - frees the allocated memory
- * @argv: a pointer to pointer to strings
- * @path: path string
- * @buffer: buffer
- * Return: nothing
- */
-
-void free_token(char **string, char *buffer, char *path)
 {
 	int n = 0;
 
@@ -72,6 +50,33 @@ void free_token(char **string, char *buffer, char *path)
 		for (n = 0; string[n] != NULL; n++)
 		{
 			free(string[n]);
+		}
+		free(string);
+	}
+	if (buffer != NULL)
+	{
+		free(buffer);
+	}
+	exit(0);
+}
+
+/**
+ * free_token - frees the allocated memory
+ * @string: a pointer to pointer to strings
+ * @path: path string
+ * @buffer: buffer
+ * Return: nothing
+ */
+
+void free_token(char **string, char *buffer, char *path)
+{
+	int j = 0;
+
+	if (string != NULL)
+	{
+		for (j = 0; string[j] != NULL; j++)
+		{
+			free(string[j]);
 		}
 		free(string);
 	}
