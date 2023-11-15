@@ -12,7 +12,7 @@
 #include <limits.h>
 #include <string.h>
 
-void print(char *str);
+void _printf(char *str);
 void prompt_display(void);
 void envi(char **argv, char *buffer);
 int _execute(char **argv, char *path);

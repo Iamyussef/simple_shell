@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * print - prints a string
+ * _printf - prints a string
  * @str: string to be printed
  * Return: void
  */
 
-void print(char *str)
+void _printf(char *str)
 {
 	write(1, str, strlen(str));
 }
