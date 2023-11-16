@@ -14,6 +14,7 @@ int _cd(char **argv, char *buffer, char *path)
 	char current_dir[1024];
 	char *home = NULL;
 	(void)path;
+	(void)buffer;
 			if (argv[1] != NULL && strncmp("-", argv[1], 1) != 0)
 			{
 				if (chdir(argv[1]) != 0)
