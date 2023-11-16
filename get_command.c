@@ -31,8 +31,8 @@ char **command_execute(void)
 		if (strncmp("env", strings[0], 3) == 0)
 		{
 			envi(strings, buffer); }
-	free_token(NULL, buffer, NULL);
-	return (strings);
+		free_token(NULL, buffer, NULL);
+		return (strings);
 }
 /**
  * _eexit - successfully exits the program

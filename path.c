@@ -75,6 +75,8 @@ int _execute(char **argv, char *path)
 			return (WEXITSTATUS(_status));
 		}
 	}
-	perror("./shell");
-	return (errno);
+	else
+	{
+		return (errno);
+	}
 }
