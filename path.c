@@ -75,8 +75,5 @@ int _execute(char **argv, char *path)
 			return (WEXITSTATUS(_status));
 		}
 	}
-	else
-	{
-		return (errno);
-	}
+	return (errno);
 }
